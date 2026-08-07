@@ -1,0 +1,31 @@
+.collection-link {
+  transition: all 0.3s ease;
+}
+
+.collection-link:hover {
+  gap: 1.5rem !important;
+}
+
+.collection-img-container {
+  transition: box-shadow 0.5s ease;
+}
+
+.collection-card:hover .collection-img-container {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.collection-img {
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.collection-card:hover .collection-img {
+  transform: scale(1.05);
+}
+
+.grayscale-img {
+  filter: grayscale(100%);
+}
+
+.collection-card:hover .grayscale-img {
+  filter: grayscale(0%);
+}

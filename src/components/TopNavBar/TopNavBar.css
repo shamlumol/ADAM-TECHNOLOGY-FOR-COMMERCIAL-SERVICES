@@ -1,0 +1,43 @@
+.header-glass {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.header-scrolled-glass {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--bs-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link-hover:hover::after,
+.nav-link-hover.active::after {
+  width: 100%;
+}
+
+.header-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,24 @@
+.about-img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.about-img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.about-accent-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 60%;
+  background-color: var(--accent);
+  z-index: 1;
+}

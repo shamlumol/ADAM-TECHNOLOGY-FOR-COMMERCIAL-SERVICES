@@ -1,0 +1,58 @@
+.form-group-custom .form-label-custom {
+  transition: color 0.3s ease;
+}
+
+.form-group-custom:focus-within .form-label-custom {
+  color: var(--primary) !important;
+  opacity: 1 !important;
+}
+
+.form-input-custom:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: none;
+}
+
+.form-input-custom::placeholder {
+  color: rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn {
+  transition: all 0.7s ease;
+}
+
+.submit-btn:hover {
+  gap: 3rem !important;
+}
+
+.contact-link {
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary) !important;
+}
+
+.footer-link {
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary) !important;
+}
+
+.footer-copy {
+  transition: opacity 0.3s ease;
+}
+
+.footer-copy:hover {
+  opacity: 1 !important;
+}
+
+.footer-social {
+  transition: color 0.3s ease;
+}
+
+.footer-social:hover {
+  color: var(--primary) !important;
+}
