@@ -50,7 +50,7 @@ npm run build
 ```
 Upload the contents of the generated build output folder (`dist/` or `build/`) to your web hosting provider or CI/CD pipeline.
 
-##  Developer Details
+## Developer Details
 
 This premium web application was designed and developed by:
 - **Developer:** Shamlu Mol A K
