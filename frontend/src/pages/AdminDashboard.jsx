@@ -55,9 +55,18 @@ const AdminDashboard = () => {
   const [pwFocused, setPwFocused] = useState(false);
   const [preview, setPreview] = useState(null);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
+
   useEffect(() => {
     const session = sessionStorage.getItem('admin_auth');
-    if (session === 'true') setIsLoggedIn(true);
+    const sessionTime = sessionStorage.getItem('admin_auth_time');
+    const ONE_HOUR = 60 * 60 * 1000; // 1 hour in ms
+    if (session === 'true' && sessionTime && (Date.now() - parseInt(sessionTime, 10) < ONE_HOUR)) {
+      setIsLoggedIn(true);
+    } else {
+      handleLogout();
+    }
   }, []);
 
   useEffect(() => {
@@ -75,6 +84,7 @@ const AdminDashboard = () => {
       const data = await res.json();
       if (data.success) {
         sessionStorage.setItem('admin_auth', 'true');
+        sessionStorage.setItem('admin_auth_time', Date.now().toString());
         setIsLoggedIn(true);
         setLoginError('');
       } else {
@@ -87,6 +97,7 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('admin_auth');
+    sessionStorage.removeItem('admin_auth_time');
     setIsLoggedIn(false);
     setPasswordInput('');
   };
@@ -136,6 +147,8 @@ const AdminDashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormError('');
     const data = new FormData();
     data.append('name', formData.name);
     data.append('category', formData.category);
@@ -143,12 +156,18 @@ const AdminDashboard = () => {
     const url = editingId ? `/api/cars/${editingId}` : '/api/cars';
     const method = editingId ? 'PUT' : 'POST';
     try {
-      await fetch(url, { method, body: data });
+      const res = await fetch(url, { method, body: data });
+      if (!res.ok) throw new Error('Network response was not ok');
       setFormData({ name: '', category: '', image: null });
       setEditingId(null);
       setPreview(null);
       fetchCars();
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+      setFormError('Failed to save car. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleEdit = (car) => {
@@ -162,6 +181,7 @@ const AdminDashboard = () => {
     setEditingId(null);
     setFormData({ name: '', category: '', image: null });
     setPreview(null);
+    setFormError('');
   };
 
   const handleDelete = async (id) => {
@@ -323,6 +343,13 @@ const AdminDashboard = () => {
               <label
                 htmlFor="car-image-upload"
                 style={css.fileBox}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    document.getElementById('car-image-upload').click();
+                  }
+                }}
               >
                 {preview ? (
                   <img src={preview} alt="Preview" style={{ maxHeight: '140px', objectFit: 'contain', maxWidth: '100%' }} />
@@ -341,14 +368,20 @@ const AdminDashboard = () => {
                 name="image"
                 onChange={handleInputChange}
                 accept="image/*"
-                style={{ display: 'none' }}
+                style={{ opacity: 0, position: 'absolute', zIndex: -1, width: 0, height: 0 }}
+                aria-label="Upload car image"
               />
               {editingId && !preview && <p style={{ fontSize: '0.72rem', color: 'var(--on-surface-variant)', marginTop: '0.4rem' }}>Leave blank to keep the existing image.</p>}
             </div>
 
+            {formError && <p style={{ ...css.error, marginBottom: '1rem' }}>{formError}</p>}
             <div style={css.btnGroup}>
-              <button type="submit" style={css.btnAdd}>
-                {editingId ? <><FiCheck size={14} /> Update Car</> : <><FiPlus size={14} /> Add Car</>}
+              <button 
+                type="submit" 
+                style={{ ...css.btnAdd, opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Saving...' : (editingId ? <><FiCheck size={14} /> Update Car</> : <><FiPlus size={14} /> Add Car</>)}
               </button>
               {editingId && (
                 <button type="button" style={css.btnOutline} onClick={handleCancel}>
