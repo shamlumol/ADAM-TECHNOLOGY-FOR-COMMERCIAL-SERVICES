@@ -67,7 +67,7 @@ const AdminDashboard = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/login', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: passwordInput })
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/password', {
+      const res = await fetch('/api/password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ currentPassword: pwChangeData.current, newPassword: pwChangeData.new })
@@ -118,7 +118,7 @@ const AdminDashboard = () => {
 
   const fetchCars = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/cars');
+      const res = await fetch('/api/cars');
       const data = await res.json();
       setCars(data);
     } catch (err) { console.error(err); }
@@ -140,7 +140,7 @@ const AdminDashboard = () => {
     data.append('name', formData.name);
     data.append('category', formData.category);
     if (formData.image) data.append('image', formData.image);
-    const url = editingId ? `http://localhost:5000/api/cars/${editingId}` : 'http://localhost:5000/api/cars';
+    const url = editingId ? `/api/cars/${editingId}` : '/api/cars';
     const method = editingId ? 'PUT' : 'POST';
     try {
       await fetch(url, { method, body: data });
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
   const handleEdit = (car) => {
     setFormData({ name: car.name, category: car.category, image: null });
     setEditingId(car.id);
-    setPreview(car.img ? (car.img.startsWith('/uploads') ? `http://localhost:5000${car.img}` : car.img) : null);
+    setPreview(car.img ? car.img : null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -167,7 +167,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this car from the fleet?')) return;
     try {
-      await fetch(`http://localhost:5000/api/cars/${id}`, { method: 'DELETE' });
+      await fetch(`/api/cars/${id}`, { method: 'DELETE' });
       fetchCars();
     } catch (err) { console.error(err); }
   };
@@ -378,7 +378,7 @@ const AdminDashboard = () => {
               </thead>
               <tbody>
                 {cars.map(car => {
-                  const imgSrc = car.img && car.img.startsWith('/uploads') ? `http://localhost:5000${car.img}` : car.img;
+                  const imgSrc = car.img;
                   return (
                     <tr key={car.id}>
                       <td style={css.td}>

@@ -54,17 +54,15 @@ const TopNavBar = () => {
             />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="d-none d-md-flex gap-4" style={{ fontSize: '1.05rem' }}>
-            <a href="#home" onClick={() => setActiveHash('#home')} className={`nav-link-hover ${activeHash === '#home' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Home</a>
-            <a href="#about" onClick={() => setActiveHash('#about')} className={`nav-link-hover ${activeHash === '#about' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>About Us</a>
-            <a href="#services" onClick={() => setActiveHash('#services')} className={`nav-link-hover ${activeHash === '#services' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Services</a>
-            <a href="#collection" onClick={() => setActiveHash('#collection')} className={`nav-link-hover ${activeHash === '#collection' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Fleet</a>
-            <a href="#contact" onClick={() => setActiveHash('#contact')} className={`nav-link-hover ${activeHash === '#contact' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Contacts</a>
-          </nav>
-
-          {/* Desktop Trailing Action */}
-          <div className="d-none d-md-block">
+          {/* Right Side Group (Nav + Button) */}
+          <div className="d-none d-md-flex align-items-center gap-5">
+            <nav className="d-flex gap-4" style={{ fontSize: '1.05rem' }}>
+              <a href="#home" onClick={() => setActiveHash('#home')} className={`nav-link-hover ${activeHash === '#home' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Home</a>
+              <a href="#about" onClick={() => setActiveHash('#about')} className={`nav-link-hover ${activeHash === '#about' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>About Us</a>
+              <a href="#services" onClick={() => setActiveHash('#services')} className={`nav-link-hover ${activeHash === '#services' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Services</a>
+              <a href="#collection" onClick={() => setActiveHash('#collection')} className={`nav-link-hover ${activeHash === '#collection' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Fleet</a>
+              {/* <a href="#contact" onClick={() => setActiveHash('#contact')} className={`nav-link-hover ${activeHash === '#contact' ? 'active' : ''} ${scrolled ? 'text-dark' : 'text-white'} font-label text-label-caps text-decoration-none fw-bold`}>Contact Us</a> */}
+            </nav>
             <a href="#contact" className={`btn ${scrolled ? 'btn-primary-red' : 'btn-outline-light'} rounded-0 text-label-caps px-4 py-2 fw-bold`}>
               Contact Us
             </a>
@@ -88,9 +86,9 @@ const TopNavBar = () => {
               <a href="#about" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-label text-label-caps text-decoration-none fw-bold">About Us</a>
               <a href="#services" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-label text-label-caps text-decoration-none fw-bold">Services</a>
               <a href="#collection" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-label text-label-caps text-decoration-none fw-bold">Fleet</a>
-              <a href="#contact" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-label text-label-caps text-decoration-none fw-bold">Contacts</a>
+              <a href="#contact" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-label text-label-caps text-decoration-none fw-bold">Contact Us</a>
               <a href="#contact" onClick={() => setIsOpen(false)} className="btn btn-primary-red rounded-0 text-label-caps py-2 mt-2 w-100 fw-bold">
-                Contact Us
+                Reach Us
               </a>
             </nav>
           </div>

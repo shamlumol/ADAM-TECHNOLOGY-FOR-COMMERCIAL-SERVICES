@@ -25,7 +25,7 @@ const CollectionSection = () => {
   const [collection, setCollection] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/cars')
+    fetch('/api/cars')
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
@@ -58,7 +58,7 @@ const CollectionSection = () => {
         {/* Dynamic Grid */}
         <div className="row g-4 justify-content-center">
           {collection.map((item, idx) => {
-            const imgSrc = item.img && item.img.startsWith('/uploads') ? `http://localhost:5000${item.img}` : item.img;
+            const imgSrc = item.img;
             return (
               <div key={item.id || idx} className="col-12 col-sm-6 col-lg-3">
                 <FadeUp delay={100 * ((idx % 4) + 1)}>

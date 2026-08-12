@@ -32,7 +32,7 @@ const AboutSection = () => {
           <div className="col-12 col-lg-6">
             <FadeUp delay={200}>
               <div className="d-flex flex-column ps-lg-5">
-                <span className="text-label-caps text-accent mb-2 d-block tracking-widest fw-bold">ABOUT US</span>
+                <span className="text-label-caps text-accent mb-2 d-block tracking-widest fw-bold">EST. 2022</span>
                 <h2 className="font-headline text-headline-xl text-primary text-uppercase mb-4 fw-bold" style={{ lineHeight: 1.1 }}>
                   COMPANY OVERVIEW
                 </h2>
@@ -40,9 +40,9 @@ const AboutSection = () => {
                   Adam Technology for Commercial Services is a dynamic and innovative leader in Saudi Arabia's mobility sector. Driven by a passion for excellence, we redefine the transportation experience by aligning our diverse fleet with your specific needs.
                 </p>
 
-                {/* <h3 className="font-headline text-primary text-uppercase mb-3 fw-bold" style={{ fontSize: '1.5rem' }}>
+                <h3 className="font-headline text-accent mb-3 fw-bolder" style={{ fontSize: '1.5rem' }}>
                   ABOUT US
-                </h3> */}
+                </h3>
                 <p className="text-body-lg text-on-surface-variant mb-0">
                   Led by visionary management and a team of meticulously trained professional drivers, teamwork is at the core of everything we do. We are your reliable transportation partner, ensuring every journey is seamless, stress-free, and reflects our unwavering commitment to excellence.
                 </p>
