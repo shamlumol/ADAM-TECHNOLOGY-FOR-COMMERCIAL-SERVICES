@@ -1,64 +1,216 @@
-# ADAM TECHNOLOGY FOR COMMERCIAL SERVICES
+# ADAM Technology for Commercial Services
 
-Welcome to the official web platform for **Adam Technology for Commercial Services** ([adamtechcommercial.com](https://adamtechcommercial.com)). This project is a modern, responsive single-page web application designed to showcase the company's premium transportation and fleet management services.
+A full-stack business website developed for **ADAM Technology for Commercial Services**, a transportation and commercial fleet services company.
 
-##  Project Overview
+**Live Website:** [adamtechcommercial.com](https://adamtechcommercial.com/)
 
-This website serves as the primary digital storefront for Adam Technology, providing clients with a seamless way to explore executive fleet options, discover premium services, and get in touch instantly. The design focuses on a luxury, high-end aesthetic with smooth scrolling, dynamic navigation, and integrated communication tools.
+---
 
-##  Key Features
+## About
 
-- **Modern UI/UX**: Sleek, glassmorphic navigation, scroll-spy functionality, and smooth fade-in animations.
-- **Dynamic Fleet Showcase**: Beautifully structured collection section highlighting premium SUVs and executive vehicles.
-- **Direct WhatsApp Integration**: Integrated floating and form-based WhatsApp buttons to provide clients with instant communication channels.
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices, ensuring a consistent premium experience everywhere.
-- **Admin Dashboard**: A secure backend interface designed for internal fleet management and updates.
+This project is a custom full-stack website developed for ADAM Technology for Commercial Services to showcase their transportation services and commercial vehicle fleet.
 
-## Technology Stack
+The website combines a modern responsive frontend with a Node.js/Express backend. It includes a dynamic vehicle showcase, admin dashboard, vehicle management, image uploads, contact form functionality, and email integration.
 
-- **Frontend Framework**: React.js
-- **Styling**: Vanilla CSS, Bootstrap (for responsive grid and utilities)
-- **Routing**: React Router
-- **Icons**: Bootstrap Icons
+The project was developed as a **client website**, with a focus on responsive design, clean UI, maintainable code, and production deployment.
 
-##  Project Structure
+---
+
+## Features
+
+* Responsive design for desktop, tablet, and mobile
+* Premium vehicle and fleet showcase
+* Dynamic vehicle data
+* Admin dashboard
+* Vehicle management with CRUD operations
+* Vehicle image upload and management
+* RESTful API
+* Contact form with email integration
+* Admin authentication
+* React Router navigation
+* Reusable React components
+* Production-ready frontend and backend
+* Apache SPA routing support
+* VPS deployment configuration
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* **React 19**
+* **Vite**
+* **React Router DOM**
+* **Bootstrap 5**
+* **CSS**
+
+### Backend
+
+* **Node.js**
+* **Express.js**
+* **Resend**
+* **Multer**
+* **JSON-based data storage**
+
+### Deployment
+
+* **DigitalOcean / VPS**
+* **PM2**
+* **Apache**
+* **Node.js**
+
+---
+
+## REST API
+
+The frontend communicates with the Express backend through RESTful API endpoints.
+The API handles vehicle management, image uploads, authentication, and contact form processing.
+
+---
+
+## Architecture
+
+The application uses a full-stack architecture with a React frontend communicating with a Node.js/Express backend through RESTful APIs.
 
 ```text
-src/
-├── components/
-│   ├── AboutSection/        # Company background and mission
-│   ├── ContactSection/      # Contact form with WhatsApp integration
-│   ├── Footer/              # Site footer with links and branding
-│   ├── HeroSection/         # Landing video background and CTA
-│   ├── TopNavBar/           # Glassmorphic, scroll-aware navigation
-│   └── ...                  # Other modular components (Fleet, Services, etc.)
-├── pages/
-│   ├── Home.jsx             # Main landing page assembling components
-│   └── AdminDashboard.jsx   # Secure admin management portal
-├── App.jsx                  # Root application component
-└── main.jsx / index.js      # Application entry point
+                    ┌──────────────────┐
+                    │       User       │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │  React + Vite   │
+                    │    Frontend      │
+                    └────────┬─────────┘
+                             │
+                         REST API
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Node.js + Express│
+                    │     Backend      │
+                    └───────┬───┬──────┘
+                            │   │
+                 ┌──────────┘   └──────────┐
+                 ▼                         ▼
+          Fleet Data &                Resend API
+          Image Uploads              Email Service
 ```
 
+The backend can also serve the production-built React application, allowing the frontend and backend to operate together as a single deployed application.
 
+---
 
-##  Deployment
+## Project Structure
 
-This project is configured for deployment to **adamtechcommercial.com**. 
-For production builds, run:
-```bash
-npm run build
+```text
+ADAM-TECHNOLOGY/
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
+│
+├── backend/
+│   ├── server.js
+│   ├── public/
+│   │   └── uploads/
+│   ├── data.json
+│   └── package.json
+│
+└── README.md
 ```
-Upload the contents of the generated build output folder (`dist/` or `build/`) to your web hosting provider or CI/CD pipeline.
 
-## Developer Details
+---
 
-This premium web application was designed and developed by:
-- **Developer:** Shamlu Mol A K
-- **Email:** shamlumolakw@gmail.com
-- **LinkedIn:** [www.linkedin.com/in/shamlu-mol-a-k](https://www.linkedin.com/in/shamlu-mol-a-k)
 
-*If you need maintenance, feature upgrades, or similar premium web solutions, please reach out via the contact details above.*
+The frontend and backend can be run simultaneously during development.
 
-## 📄 License & Ownership
+---
 
-This project was custom-built for **Adam Technology for Commercial Services**. All rights reserved.
+## Production
+
+The application is structured for deployment on a VPS using Node.js, PM2, and Apache.
+
+
+## Design & Development
+
+The website was designed around the company's commercial transportation services and premium vehicle offering.
+
+The UI focuses on:
+
+* Clean and modern layouts
+* Premium vehicle presentation
+* Strong visual hierarchy
+* Responsive design
+* Simple navigation
+* Clear calls-to-action
+* Consistent spacing and typography
+* Mobile-friendly interactions
+
+The goal was to create a professional digital presence that represents the company's commercial services while keeping the user experience straightforward.
+
+---
+
+## My Role
+
+**Full-Stack Web Developer**
+
+I was responsible for the development and technical implementation of the project, including:
+
+* React frontend development
+* Component architecture
+* Responsive UI implementation
+* Backend development with Node.js and Express
+* REST API development
+* CRUD functionality
+* Admin dashboard
+* Vehicle and image management
+* Contact form and email integration
+* Authentication
+* Production configuration
+* Deployment preparation
+
+---
+
+## Client
+
+**ADAM Technology for Commercial Services**
+
+* **Industry:** Transportation & Commercial Fleet Services
+* **Project Type:** Full-Stack Business Website
+* **Role:** Full-Stack Web Developer
+
+---
+
+## Developer
+
+**Shamlu Mol A K**
+Full-Stack Web Developer
+
+*  **Email:** [shamlumolakw@gmail.com](mailto:shamlumolakw@gmail.com)
+*  **LinkedIn:** [linkedin.com/in/shamlu-mol-a-k](https://linkedin.com/in/shamlu-mol-a-k)
+
+---
+
+## Disclaimer
+
+This repository contains work developed as part of a client project.
+
+The client's branding, logos, images, content, business information, and other project-specific assets belong to **ADAM Technology for Commercial Services** and their respective owners.
+
+This repository is shared to demonstrate the development work and technical implementation of the project.
+
+---
+
+## License
+
+This is proprietary client work.
+
+The source code, design, branding, content, and assets may not be reused, redistributed, or commercially reproduced without permission.
